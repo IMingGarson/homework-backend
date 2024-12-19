@@ -1,5 +1,3 @@
-// backend/src/modules/reviews/reviews.service.ts
-
 import {
   Injectable,
   NotFoundException,
@@ -23,7 +21,7 @@ export class ReviewsService {
 
   async findAll(): Promise<PerformanceReview[]> {
     return this.reviewsRepository.find({
-      relations: ['participants'],
+      relations: ['participants', 'employee'],
       withDeleted: true,
     });
   }
@@ -94,17 +92,15 @@ export class ReviewsService {
     id: number,
     employeeIds: number[],
   ): Promise<PerformanceReview> {
-    // Find the review
     const review = await this.reviewsRepository.findOne({
       where: { id },
-      relations: ['participants'], // Load existing participants
+      relations: ['participants'],
     });
 
     if (!review) {
       throw new BadRequestException('Review not found');
     }
 
-    // Find employees by their IDs
     const employees = await this.employeesRepository.findBy({
       id: In(employeeIds),
     });
@@ -113,18 +109,14 @@ export class ReviewsService {
       throw new BadRequestException('Some employee IDs are invalid');
     }
 
-    // Merge participants while avoiding duplicates
     const uniqueParticipants = [
       ...new Set([...review.participants, ...employees]),
     ];
 
-    // Update participants
     review.participants = uniqueParticipants;
 
-    // Save the updated review with its participants
     await this.reviewsRepository.save(review);
 
-    // Return the updated review with relations
     return await this.reviewsRepository.findOne({
       where: { id },
       relations: ['participants'],

@@ -1,4 +1,3 @@
-// src/modules/employees/employees.controller.ts
 import {
   Controller,
   Get,

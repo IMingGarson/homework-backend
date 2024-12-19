@@ -1,4 +1,3 @@
-// performance-review.entity.ts
 import {
   Entity,
   PrimaryGeneratedColumn,

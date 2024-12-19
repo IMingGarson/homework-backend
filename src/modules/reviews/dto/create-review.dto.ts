@@ -1,5 +1,3 @@
-// backend/src/modules/reviews/dto/create-review.dto.ts
-
 import { IsNotEmpty, IsOptional, IsEnum, IsNumber } from 'class-validator';
 import { ReviewStatus } from '../review.entity';
 

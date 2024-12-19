@@ -1,4 +1,3 @@
-// feedback.entity.ts
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -22,13 +21,11 @@ export class Feedback {
   @CreateDateColumn()
   submittedAt: Date;
 
-  // Employee who provided the feedback
   @ManyToOne(() => Employee, (employee) => employee.feedbacks, {
     nullable: false,
   })
   employee: Employee;
 
-  // The performance review for which the feedback is provided
   @ManyToOne(() => PerformanceReview, (review) => review.feedbacks, {
     nullable: false,
   })
