@@ -68,7 +68,9 @@ This is the backend application for the Employee Performance Review system. Buil
 ### **Steps**
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd backend
+git clone https://github.com/IMingGarson/homework-backend.git
+
+cd homework-backend
+
 npm run start:dev
 ```
