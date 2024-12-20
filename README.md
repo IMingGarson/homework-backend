@@ -71,6 +71,20 @@ This is the backend application for the Employee Performance Review system. Buil
 git clone https://github.com/IMingGarson/homework-backend.git
 
 cd homework-backend
+```
 
+2. Prepare .env
+```bash
+PORT=4000
+MYSQL_HOST=localhost
+MYSQL_DATABASE=
+MYSQL_USER=
+MYSQL_PASSWORD=
+MYSQL_ROOT_PASSWORD=
+JWT_SECRET=
+```
+
+3. Run locally
+```bash
 npm run start:dev
 ```
