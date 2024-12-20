@@ -4,9 +4,10 @@ This is the backend application for the Employee Performance Review system. Buil
 
 ## **API Endpoints**
 ### **Authentication**
-1. **Register**: `POST /auth/register`
-   - Payload: `{ name, email, password }`
-   - Description: Register a new user.
+1. **Register Admin Account**: `POST /auth/register`
+   - Payload: `{ name, email, password, role }`
+   - Description: Register an admin account. Please set role to be "admin".
+   - Note: This API is called manually. There is not UI for creating an admin account.
 
 2. **Login**: `POST /auth/login`
    - Payload: `{ email, password }`
@@ -19,7 +20,7 @@ This is the backend application for the Employee Performance Review system. Buil
 
 2. **Create Employee**: `POST /employees`
    - Payload: `{ name, email, password, role }`
-   - Description: Add a new employee.
+   - Description: Add a new employee. Please set role to be "employee".
 
 3. **Update Employee**: `PUT /employees/:id`
    - Payload: `{ name, email }`
