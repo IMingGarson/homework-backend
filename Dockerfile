@@ -11,4 +11,4 @@ RUN npm run build
 
 EXPOSE 4000
 
-CMD ["npm", "run", "start:prod"]
+CMD ["npm", "run", "start:prod", "--host=0.0.0.0"]
