@@ -18,6 +18,8 @@ dotenv.config();
       database: process.env.MYSQL_DATABASE,
       autoLoadEntities: true,
       synchronize: true,
+      retryAttempts: 5,
+      retryDelay: 3000,
     }),
     AuthModule,
     EmployeesModule,
